@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
-import { Source_Sans_3 as Font_sas } from "next/font/google";
-import "./globals.css";
 
-const Source_Sans_3 = Font_sas({
-  variable: "--font-sas",
+import { Rajdhani } from "next/font/google";
+import "./globals.css";
+import Header from "@/components/common/header";
+import Footer from "@/components/common/Footer";
+
+const rajdhani = Rajdhani({
+  variable: "--font-rajdhani",
   subsets: ["latin"],
-  weight: ["200", "300", "400", "500", "600", "700", "800", "900"],
+  weight: ["400", "500", "700"], // Include only the weights you plan to use
 });
 
 export const metadata: Metadata = {
@@ -20,8 +23,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={` font-sas ${Source_Sans_3.variable} antialiased`}>
+      <body className={` ${rajdhani.variable} antialiased`}>
+        <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
